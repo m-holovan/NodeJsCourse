@@ -1,9 +1,8 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Client } from 'pg';
-import * as schema from './schema';
-import dotenv from 'dotenv';
+const { drizzle } = require('drizzle-orm/node-postgres');
+const { Client } = require('pg');
+const schema = require('./schema');
+const dotenv = require('dotenv');
 dotenv.config();
-
 
 
 const client = new Client({
@@ -20,6 +19,6 @@ const client = new Client({
 
 });
 
-await client.connect();
+client.connect();
 
-export const db = drizzle(client, { schema });
+module.exports = drizzle(client, { schema });
