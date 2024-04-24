@@ -5,10 +5,7 @@ const { request } = require('http');
 
 const router = express.Router();
 
-// handle get request for path /products
-router.get('/products', (request, response) => {
-    return response.json(products);
-});
+
 
 // handle get request for path /products/:brand
 router.get('/products/:brand', blockSpecialBrand, (request, response) => {
